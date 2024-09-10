@@ -14,7 +14,7 @@ if __name__ == "__main__":
         if not wxread_notes[i].strip():
             continue
         # stop at the end
-        if wxread_notes[i] == '-- 来自微信读书':
+        if wxread_notes[i].__contains__('-- 来自微信读书'):
             break
         # chapter title
         if (not wxread_notes[i].startswith('◆') and wxread_notes[i].strip() and not wxread_notes[i - 1].strip() and
