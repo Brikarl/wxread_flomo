@@ -6,7 +6,7 @@ if __name__ == "__main__":
     with open('wx_notes.txt', 'r') as f:
         wxread_notes = f.readlines()
 
-    hashtag = '#读书笔记/' + wxread_notes[0].strip().replace(' ', '、') + '-' + wxread_notes[2].strip().replace(' ', '、')
+    hashtag = '#读书笔记/' + wxread_notes[0].strip().replace(' ', '_') + '-' + wxread_notes[2].strip().replace(' ', '、')
     chapter = ''
     content = ''
     for i in range(5, len(wxread_notes)):
@@ -14,7 +14,7 @@ if __name__ == "__main__":
         if not wxread_notes[i].strip():
             continue
         # stop at the end
-        if wxread_notes[i].__contains__('- 来自微信读书'):
+        if wxread_notes[i].__contains__('来自微信读书'):
             break
         # chapter title
         if (not wxread_notes[i].startswith('◆') and wxread_notes[i].strip() and not wxread_notes[i - 1].strip() and
